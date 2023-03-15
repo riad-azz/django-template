@@ -1,0 +1,37 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        {% endblock title %}
+    </title>
+    <!-- FAVICON -->
+    <link rel="icon" type="image/x-icon" href="{% static '/images/favicon.ico' %}">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <!-- Scripts -->
+    <script src="{% static 'js/main.js' %}" defer></script>
+    {% block extra_head %}
+    {% endblock extra_head %}
+</head>
+<body>
+
+<header>
+    {% include 'includes/nav.html' %}
+</header>
+
+<main>
+    {% block content %}
+    {% endblock content %}
+</main>
+
+
+{% include 'includes/footer.html' %}
+
+
+{% block extra_scripts %}
+{% endblock extra_scripts %}
+</body>
+</html>
