@@ -1,6 +1,16 @@
 # DJANGO TEMPLATE
 
-A social media where people can rant about their problems
+Simple django starter template set up with docker ready for development and production.
+
+it includes :
+* Allauth for user management
+* Email confirmation
+* Django corsheaders
+* Docker environment for DEVELOPMENT & PRODUCTION
+* Postgresql Database
+* Base html template and core app
+* Static files setup and ready
+* Nginx ready for reverse proxy
 
 ## Development
 
@@ -20,6 +30,11 @@ docker-compose -f docker-compose.dev.yml down
 ```
 
 ## Production
+
+* Before production make sure to run the code
+```
+python manage.py collectstatic
+```
 
 * Docker production environment build
 ```
