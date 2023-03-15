@@ -1,0 +1,35 @@
+# Python
+*.pyc
+__pycache__/
+*.py[cod]
+
+# Django
+*.log
+*.pot
+*.pyc
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/avatars
+media/post_images
+
+# Node
+node_modules/
+package-lock.json
+
+# Ignore migration files
+**/migrations/*.py
+**/migrations/*.pyc
+
+# Secret key to add later
+
+# Static files
+staticfiles/
+
+# IDE
+.vscode/
+*.idea/
+*.iml
+
+# Environments
+venv/
