@@ -16,12 +16,12 @@ it includes :
 
 * Docker development environment build
 ```
-docker-compose -f docker-compose.dev.yml --env-file .env.dev up -d --build
+docker-compose -f docker-compose.dev.yml up -d --build
 ```
 
 * Docker development environment run
 ```
-docker-compose -f docker-compose.dev.yml --env-file .env.dev up -d
+docker-compose -f docker-compose.dev.yml up -d
 ```
 
 * Docker development environment stop
@@ -38,12 +38,12 @@ python manage.py collectstatic
 
 * Docker production environment build
 ```
-docker-compose -f docker-compose.prod.yml --env-file .env.prod up -d --build
+docker-compose -f docker-compose.prod.yml up -d --build
 ```
 
 * Docker production environment run
 ```
-docker-compose -f docker-compose.prod.yml --env-file .env.prod up -d
+docker-compose -f docker-compose.prod.yml up -d
 ```
 
 * Docker production environment stop

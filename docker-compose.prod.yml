@@ -10,8 +10,10 @@ services:
       - "8000:8000"
     depends_on:
       - prod_db
-    env_file:
-      - ./.env.prod
+    environment:
+      - "DJANGO_SECRET_KEY=PROD-SECRET-KEY"
+      - "DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@prod_db:${POSTGRES_PORT}/${POSTGRES_DB}"
+      - "DJANGO_DEBUG=False"
 
   prod_db:
     image: postgres:15
@@ -19,11 +21,15 @@ services:
       - postgres_prod:/var/lib/postgresql/data
     ports:
       - "5433:5432"
+    env_file:
+      - .env
     environment:
-     - POSTGRES_DB=${POSTGRES_DB}
-     - POSTGRES_USER=${POSTGRES_USER}
-     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-     - POSTGRES_PORT=${POSTGRES_PORT}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+    depends_on:
+      - nginx
 
   nginx:
     image: nginx:1.21
@@ -33,7 +39,5 @@ services:
       - ./nginx/nginx.prod.conf:/etc/nginx/nginx.conf
       - ./staticfiles:/app/staticfiles/
       - ./media:/app/media/
-    depends_on:
-      - web
 volumes:
   postgres_prod:
