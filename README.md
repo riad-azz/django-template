@@ -23,7 +23,7 @@ git clone https://github.com/riad-azz/django-template.git
 ### Development
 
 ```bash
-#development build
+# development build
 docker-compose -f docker-compose.dev.yml up -d --build
 
 # development run
@@ -42,12 +42,12 @@ python manage.py collectstatic
 ```
 
 ```bash
-#development build
-docker-compose -f docker-compose.dev.yml up -d --build
+# production build
+docker-compose -f docker-compose.prod.yml up -d --build
 
-# development run
-docker-compose -f docker-compose.dev.yml up -d
+# production run
+docker-compose -f docker-compose.prod.yml up -d
 
-# development stop
-docker-compose -f docker-compose.dev.yml down
+# production stop
+docker-compose -f docker-compose.prod.yml down
 ```
