@@ -6,47 +6,48 @@ it includes :
 * Allauth for user management
 * Email confirmation
 * Django corsheaders
-* Docker environment for DEVELOPMENT & PRODUCTION
+* Docker environment for **Development** & **Production**
 * Postgresql Database
 * Base html template and core app
 * Static files setup and ready
-* Nginx ready for reverse proxy
+* Nginx for reverse proxy
 
-## Development
+## Installation
 
-* Docker development environment build
+```bash
+git clone https://github.com/riad-azz/django-template.git
 ```
+
+## Running the project
+
+### Development
+
+```bash
+#development build
 docker-compose -f docker-compose.dev.yml up -d --build
-```
 
-* Docker development environment run
-```
+# development run
 docker-compose -f docker-compose.dev.yml up -d
-```
 
-* Docker development environment stop
-```
+# development stop
 docker-compose -f docker-compose.dev.yml down
 ```
 
-## Production
+### Production
 
-* Before production make sure to run the code
+Make sure to run collectstatic before production
+
 ```
 python manage.py collectstatic
 ```
 
-* Docker production environment build
-```
-docker-compose -f docker-compose.prod.yml up -d --build
-```
+```bash
+#development build
+docker-compose -f docker-compose.dev.yml up -d --build
 
-* Docker production environment run
-```
-docker-compose -f docker-compose.prod.yml up -d
-```
+# development run
+docker-compose -f docker-compose.dev.yml up -d
 
-* Docker production environment stop
-```
-docker-compose -f docker-compose.prod.yml down
+# development stop
+docker-compose -f docker-compose.dev.yml down
 ```
