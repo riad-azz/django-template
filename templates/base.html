@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FAVICON -->
+    <link rel="icon" type="image/x-icon" href="{% static '/images/favicon.ico' %}">
     <title>
         {% block title %}
         {% endblock title %}
     </title>
-    <!-- FAVICON -->
-    <link rel="icon" type="image/x-icon" href="{% static '/images/favicon.ico' %}">
     <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <!-- Scripts -->
@@ -19,7 +19,7 @@
 <body>
 
 <header>
-    {% include 'includes/nav.html' %}
+    {% include '_includes/nav.html' %}
 </header>
 
 <main>
@@ -28,7 +28,7 @@
 </main>
 
 
-{% include 'includes/footer.html' %}
+{% include '_includes/footer.html' %}
 
 
 {% block extra_scripts %}

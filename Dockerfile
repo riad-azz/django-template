@@ -1,5 +1,5 @@
 # Pull base image
-FROM python:3.11.2-bullseye
+FROM python:latest
 
 # Set environment variables
 ENV PIP_DISABLE_PIP_VERSION_CHECK 1
@@ -12,13 +12,14 @@ RUN pip install --upgrade pip
 # Set work directory
 WORKDIR /code
 
-# Install dependencies
+# Copy dependencies
 COPY ./requirements.txt .
+
+# Install dependencies
 RUN pip install -r requirements.txt
 
 # Install gunicorn
 RUN pip install gunicorn
-
 
 # Copy project
 COPY . .

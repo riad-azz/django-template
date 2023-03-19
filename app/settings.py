@@ -27,11 +27,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env.str("DJANGO_SECRET_KEY", default="DEBUG-ONLY-KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool("DJANGO_DEBUG", default=False)
-
+DEBUG = True
 ALLOWED_HOSTS = ["127.0.0.1"]
-
-CORS_ORIGIN_ALLOW_ALL = env.bool("DJANGO_DEBUG", default=False)
+INTERNAL_IPS = ["127.0.0.1"]
+CORS_ORIGIN_ALLOW_ALL = DEBUG
 CORS_ALLOWED_ORIGINS = [
     "http://localhost",
     "http://127.0.0.1"
@@ -51,6 +50,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'corsheaders',
+    'django_extensions',
+    'debug_toolbar',
     # Local
     'core.apps.CoreConfig',
 ]
@@ -60,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -89,9 +91,17 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    "default": env.dj_db_url("DATABASE_URL", default="postgres://postgres@dev_db/postgres")
-}
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+else:
+    DATABASES = {
+        "default": env.dj_db_url("DATABASE_URL", default="postgres://postgres@localhost/postgres")
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -148,7 +158,7 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 ACCOUNT_EMAIL_VERIFICATION = "none"
-# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 # DEFAULT_FROM_EMAIL = "django-admin@admin.com"
 
