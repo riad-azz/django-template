@@ -1,21 +1,21 @@
 # Python
-*.pyc
-__pycache__/
+**/__pycache__/
 *.py[cod]
 
 # Django
 *.log
 *.pot
 *.pyc
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
-media/avatars
-media/post_images
+**/local_settings.py
+**/db.sqlite3
+**/db.sqlite3-journal
 
 # Node
 node_modules/
 package-lock.json
+
+# Environment
+**/.env
 
 # Ignore migration files
 **/migrations/*.py
@@ -24,12 +24,12 @@ package-lock.json
 # Secret key to add later
 
 # Static files
-staticfiles/
+**/staticfiles/
 
 # IDE
-.vscode/
-*.idea/
-*.iml
+**/.vscode/
+**/.idea/
+**/.iml
 
 # Environments
-venv/
+**/venv/
