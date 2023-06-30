@@ -3,6 +3,44 @@
 The Django Starter Template is a minimalistic and ready-to-use template for quickly bootstrapping your Django projects.
 It provides a solid foundation and best practices to kickstart your development process.
 
+## Getting started
+
+1. Cloning the repo:
+
+```bash
+git clone https://github.com/riad-azz/django-template.git
+```
+
+2. Installing dependencies:
+
+```bash
+cd django-template
+```
+
+```bash
+python -m pip install -r requirements/base.txt
+```
+
+3. Starting the development server:
+
+```bash
+python manage.py runserver localhost:8000
+```
+
+4. Starting the staging server:
+
+```bash
+python manage.stage.py runserver localhost:8000
+```
+
+5. Starting the production server:
+
+```bash
+python manage.prod.py runserver 0.0.0.0:8000
+```
+
+Open http://localhost:8000 with your browser to see the result.
+
 ## Features
 
 This is a simple Django template that provides the following features:
@@ -37,3 +75,32 @@ By modifying the stage.py and prod.py files in the `backend/settings/` directory
 other settings to match your staging and production environments. Ensure that you use the appropriate values and
 configurations for each environment to ensure the smooth operation of your Django project in different deployment
 scenarios.
+
+## Static & Media Files
+
+To ensure correct configuration of static and media files for production in your Django project, follow these simple
+steps:
+
+1. Collect Static Files: Run the following command to collect all static files in one location:
+
+```bash
+python manage.prod.py collectstatic
+```
+
+This command gathers static files from all installed apps and places them in a designated directory.
+
+2. Serve Static Files: Configure your production server to serve static files directly. Set up your web server (e.g.,
+   Nginx, Apache) to handle static file serving efficiently. Configure the web server to serve static files from the
+   designated directory where you collected the static files. This ensures that static files are served directly by the
+   web server, enhancing performance.
+
+3. Configure Media Files: If your application involves user-uploaded files, follow these steps:
+   Define a MEDIA_ROOT setting in your production settings file, specifying the directory where user-uploaded media
+   files will be stored. Configure your web server to serve media files from the specified MEDIA_ROOT directory.
+
+Ensure the proper permissions are set for the media directory, allowing the web server to read and write files in that
+location.
+
+By following these simple steps, you can configure the static and media files correctly for production in your Django
+project. Make sure to thoroughly test the configuration in a production-like environment to ensure the proper handling
+of static and media files.
