@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
     <title>{% block title %}{% endblock title%}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block head_scripts %}
@@ -10,12 +11,12 @@
 <body>
 
 <nav class="navbar">
-    <img src="{% static 'images/django-image.png' %}" style="width: 100px;">
     <div>
         <a href="{% url 'core:home' %}">Home</a>
         <a href="{% url 'core:about' %}">About</a>
         <a href="{% url 'core:contact' %}">Contact</a>
     </div>
+    <img src="{% static 'images/django-image.png' %}" style="width: 100px;">
 </nav>
 
 <div class="main">
