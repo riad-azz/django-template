@@ -78,10 +78,11 @@ scenarios.
 
 ## Static & Media Files
 
-To ensure correct configuration of static and media files for production in your Django project, follow these simple
-steps:
+To ensure correct configuration of static and media files for production in your Django project:
 
-**Collect Static Files**: Run the following command to collect all static files in one location:
+### Collect Static Files:
+
+Run the following command to collect all static files in one location:
 
 ```bash
 python manage.prod.py collectstatic
@@ -89,14 +90,14 @@ python manage.prod.py collectstatic
 
 This command gathers static files from all installed apps and places them in a designated directory.
 
-**Serve Static Files**: Configure your production server to serve static files directly. Set up your web server (e.g.,
-   Nginx, Apache) to handle static file serving efficiently. Configure the web server to serve static files from the
-   designated directory where you collected the static files. This ensures that static files are served directly by the
-   web server, enhancing performance.
+### Serve Static Files:
 
-**Configure Media Files**: If your application involves user-uploaded files, follow these steps:
-   Define a MEDIA_ROOT setting in your production settings file, specifying the directory where user-uploaded media
-   files will be stored. Configure your web server to serve media files from the specified MEDIA_ROOT directory.
+Configure your production server to serve static files directly. Set up your web server (e.g.,Nginx, Apache) to handle static file serving efficiently. Configure the web server to serve static files from the designated directory where you collected the static files. This ensures that static files are served directly by the web server, enhancing performance.
+
+### Configure Media Files:
+
+If your application involves user-uploaded files, follow these steps:Define a MEDIA_ROOT setting in your production settings file, specifying the directory where user-uploaded media files will be stored. Configure your web server to serve media files from the specified MEDIA_ROOT directory.
+
 
 Ensure the proper permissions are set for the media directory, allowing the web server to read and write files in that
 location.
