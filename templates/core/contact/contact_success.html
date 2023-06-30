@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Contact Success
+{% endblock title %}
+
+{% block content %}
+<main>
+    <h2>Your message has been sent.</h2>
+    <p>Thank you for your feedback. <small><a href="{% url 'core:home' %}">Back Home</a></small></p>
+</main>
+{% endblock content %}

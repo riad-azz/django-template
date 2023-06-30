@@ -4,4 +4,4 @@ from core.models.policy import Policy
 
 @admin.register(Policy)
 class PolicyAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title',)
+    list_display = ("title", "created", "modified")

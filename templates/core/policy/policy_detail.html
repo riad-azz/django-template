@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ policy.title }}
+{% endblock title %}
+
+{% block content %}
+<main>
+{{ policy.body|safe }}
+</main>
+{% endblock content %}

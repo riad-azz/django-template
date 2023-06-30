@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Policies
+{% endblock title %}
+
+{% block content %}
+
+<main>
+    <h1>Our policies</h1>
+    {% if policies %}
+    <p>Here is a comprehensive list of all our policies:</p>
+    <ul>
+        {% for policy in policies %}
+        <li>
+            <h4>
+                <a href="{{ policy.get_absolute_url }}">{{ policy.title }}</a>
+            </h4>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>
+        No policies have been added yet.
+    </p>
+    {% endif %}
+</main>
+
+{% endblock content %}

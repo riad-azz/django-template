@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Contact
+{% endblock title %}
+
+{% block content %}
+<main>
+    <div class="form-container">
+        <h1>Contact Us</h1>
+        <form method="post" id="contact-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_name">Name:</label>
+                <input type="text" id="id_name" name="name">
+                {% if form.name.errors %}
+                <p class="form-error" id="name_error">{{ form.name.errors.0 }}</p>
+                {% else %}
+                <p class="form-error" id="name_error"></p>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="id_email">Email:</label>
+                <input type="email" id="id_email" name="email">
+                {% if form.email.errors %}
+                <p class="form-error" id="email_error">{{ form.email.errors.0 }}</p>
+                {% else %}
+                <p class="form-error" id="email_error"></p>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="id_title">Title:</label>
+                <input type="text" id="id_title" name="title">
+                {% if form.title.errors %}
+                <p class="form-error" id="title_error">{{ form.title.errors.0 }}</p>
+                {% else %}
+                <p class="form-error" id="title_error"></p>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="id_message">Message:</label>
+                <textarea id="id_message" name="message" rows="5"></textarea>
+                {% if form.message.errors %}
+                <p class="form-error" id="message_error">{{ form.message.errors.0 }}</p>
+                {% else %}
+                <p class="form-error" id="message_error"></p>
+                {% endif %}
+            </div>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</main>
+{% endblock content %}
+
+{% block end_scripts %}
+<script src="{% static 'js/contact-form.js' %}"></script>
+{% endblock end_scripts %}

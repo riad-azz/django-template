@@ -1,0 +1,40 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock title%}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block head_scripts %}
+    {% endblock head_scripts %}
+</head>
+<body>
+
+<nav class="navbar">
+    <img src="{% static 'images/django-image.png' %}" style="width: 100px;">
+    <div>
+        <a href="{% url 'core:home' %}">Home</a>
+        <a href="{% url 'core:about' %}">About</a>
+        <a href="{% url 'core:contact' %}">Contact</a>
+    </div>
+</nav>
+
+<div class="main">
+    {% block content %}
+    {% endblock content %}
+</div>
+
+<footer>
+    <p>&copy; 2023 YourWebsite. All rights reserved. |
+        <!-- EXAMPLE ON REAL USAGE -->
+        <!-- <a href="{% url 'core:policy_detail' 'terms-of-service' %}">Terms of Service</a> | -->
+        <!-- <a href="{% url 'core:policy_detail' 'privacy-policy' %}">Privacy Policy</a> | -->
+        <a href="#">Terms of Service</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="{% url 'core:policy_list' %}">Our Policies</a>
+    </p>
+</footer>
+
+{% block end_scripts %}
+{% endblock end_scripts %}
+</body>
+</html>
