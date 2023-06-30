@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Contact Messages
+{% endblock title %}
+
+{% block content %}
+
+<main>
+    <h1>Contact Messages Via Website</h1>
+    {% if messages %}
+
+    {% for message in messages %}
+    <hr>
+    <h2>{{ message.title }}</h2>
+    <p>{{ message.message }}</p>
+    <small>Sent by {{ message.name }} on {{ message.created }}</small>
+    {% endfor %}
+    <hr>
+    {% else %}
+    <p>
+        No messages found.
+    </p>
+    {% endif %}
+</main>
+
+{% endblock content %}

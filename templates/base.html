@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 {% load static %}
 <html lang="en">
 <head>
@@ -11,12 +12,18 @@
 <body>
 
 <nav class="navbar">
-    <div>
+    <div class="flex-row">
         <a href="{% url 'core:home' %}">Home</a>
         <a href="{% url 'core:about' %}">About</a>
         <a href="{% url 'core:contact' %}">Contact</a>
     </div>
-    <img src="{% static 'images/django-image.png' %}" style="width: 100px;">
+    <div class="flex-row">
+        {% if user.is_authenticated and user.is_staff %}
+        <a href="{% url 'admin:index' %}">Dashboard</a>
+        <a href="{% url 'core:contact_list' %}">Messages</a>
+        {% endif %}
+        <img class="logo-image" src="{% static 'images/django-image.png' %}" style="width: 80px;">
+    </div>
 </nav>
 
 <div class="main">

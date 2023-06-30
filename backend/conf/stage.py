@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-DEBUG = os.environ.get("DEBUG")
-PRODUCTION = os.environ.get("PRODUCTION")
+DEBUG = True
+PRODUCTION = False
 SECRET_KEY = os.environ.get("SECRET_KEY")
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 

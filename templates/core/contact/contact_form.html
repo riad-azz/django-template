@@ -13,7 +13,7 @@ Contact
             {% csrf_token %}
             <div class="form-group">
                 <label for="id_name">Name:</label>
-                <input type="text" id="id_name" name="name">
+                <input type="text" id="id_name" name="name" placeholder="Your full name">
                 {% if form.name.errors %}
                 <p class="form-error" id="name_error">{{ form.name.errors.0 }}</p>
                 {% else %}
@@ -22,7 +22,7 @@ Contact
             </div>
             <div class="form-group">
                 <label for="id_email">Email:</label>
-                <input type="email" id="id_email" name="email">
+                <input type="email" id="id_email" name="email" placeholder="Your email address">
                 {% if form.email.errors %}
                 <p class="form-error" id="email_error">{{ form.email.errors.0 }}</p>
                 {% else %}
@@ -31,7 +31,7 @@ Contact
             </div>
             <div class="form-group">
                 <label for="id_title">Title:</label>
-                <input type="text" id="id_title" name="title">
+                <input type="text" id="id_title" name="title" placeholder="A descriptive title">
                 {% if form.title.errors %}
                 <p class="form-error" id="title_error">{{ form.title.errors.0 }}</p>
                 {% else %}
@@ -40,7 +40,7 @@ Contact
             </div>
             <div class="form-group">
                 <label for="id_message">Message:</label>
-                <textarea id="id_message" name="message" rows="5"></textarea>
+                <textarea id="id_message" name="message" placeholder="Your message..." rows="5"></textarea>
                 {% if form.message.errors %}
                 <p class="form-error" id="message_error">{{ form.message.errors.0 }}</p>
                 {% else %}
